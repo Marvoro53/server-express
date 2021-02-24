@@ -4,7 +4,7 @@ const http= require("http");
 const PORT= 8080;
 // Create a generic function to handle requests and responses
 // Pass the handleRequest function to empower it with functionality.
-function handleRequest(requests, response){
+function handleRequest(request, response){
 count++
 console.log(`Request ${count}.Url. requested ${request.url}`)
 //Send the string to client when user visits port

@@ -4,37 +4,40 @@ var http = require("http");
 // =====================================================================
 
 // Then define the ports we want to listen to
-var PORTONE = 7000;
-// var PORTTWO = 7500;
+const PORT = 7000;
+const PORTTWO = 7500;
 
 // =====================================================================
 
 // We need two different functions to handle requests, one for each server.
-function handleRequestOne(request, response) {
-    response.end("You got it! Now keep going!");
-  }
+function handleRequestOne(request, response){
+    console.log(`Request Url. requested ${request.url}`)
+    //Send the string to client when user visits port
+    response.end("It works! Path Hit: " + request.url)
+    }
   
-//   function handleRequestTwo(request, response) {
-//     response.end("You are goated!");
-//   }
+  function handleRequestTwo(request, response) {
+    console.log(`Request Url. requested ${request.url}`)
+    response.end("You are goated bro!");
+  }
 
 // =====================================================================
 
 // Create our servers
-var serverOne = http.createServer(handleRequestOne);
-// var serverTwo = http.createServer(handleRequestTwo);
+const server = http.createServer(handleRequestOne);
+const serverTwo = http.createServer(handleRequestTwo);
 
 // =====================================================================
 
 // Starting our servers
-serverOne.listen(PORTONE, function() {
+server.listen(PORT, function() {
 
   // Callback triggered when server is successfully listening. Hurray!
-  console.log("Check out server at: http://localhost:" + PORTONE);
+  console.log("Check out server at: http://localhost:" + PORT);
 });
 
-// serverTwo.listen(PORTTWO, function() {
+serverTwo.listen(PORTTWO, function() {
 
   // Callback triggered when server is successfully listening. Hurray!
-//   console.log("Your server is at: http://localhost:" + PORTTWO);
-// });
+  console.log("Your server is at: http://localhost:" + PORTTWO);
+});
