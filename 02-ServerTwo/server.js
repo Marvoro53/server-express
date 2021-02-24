@@ -5,7 +5,7 @@ var http = require("http");
 
 // Then define the ports we want to listen to
 var PORTONE = 7000;
-var PORTTWO = 7500;
+// var PORTTWO = 7500;
 
 // =====================================================================
 
@@ -14,15 +14,15 @@ function handleRequestOne(request, response) {
     response.end("You got it! Now keep going!");
   }
   
-  function handleRequestTwo(request, response) {
-    response.end("You are goated!");
-  }
+//   function handleRequestTwo(request, response) {
+//     response.end("You are goated!");
+//   }
 
 // =====================================================================
 
 // Create our servers
 var serverOne = http.createServer(handleRequestOne);
-var serverTwo = http.createServer(handleRequestTwo);
+// var serverTwo = http.createServer(handleRequestTwo);
 
 // =====================================================================
 
@@ -33,8 +33,8 @@ serverOne.listen(PORTONE, function() {
   console.log("Check out server at: http://localhost:" + PORTONE);
 });
 
-serverTwo.listen(PORTTWO, function() {
+// serverTwo.listen(PORTTWO, function() {
 
   // Callback triggered when server is successfully listening. Hurray!
-  console.log("Your server is at: http://localhost:" + PORTTWO);
-});
+//   console.log("Your server is at: http://localhost:" + PORTTWO);
+// });
