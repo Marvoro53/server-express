@@ -25,13 +25,13 @@ function handleRequest(req, res) {
   }
 }
 
-// function renderHTML(filePath, res){
-//  return fs.readFile(__dirname + filePath, function(err, data) {
-//         res.writeHead(200, { "Content-Type": "text/html" });
-//         res.end(data);
-//       });
-// }
-// // Starts our server.
-// server.listen(PORT, function() {
-//   console.log("Server is listening on PORT: " + PORT);
-// });
+function renderHTML(filePath, res){
+ return fs.readFile(__dirname + filePath, function(err, data) {
+        res.writeHead(200, { "Content-Type": "text/html" });
+        res.end(data);
+      });
+}
+// Starts our server.
+server.listen(PORT, function() {
+  console.log("Server is listening on PORT: " + PORT);
+});
