@@ -1,89 +1,65 @@
-// Dependencies
-// =============================================================
-var express = require('express');
-var path = require('path');
-// Sets up the Express App
-// =============================================================
+var express = require("express");
+var path = require("path");
+
 var app = express();
-var PORT = 8080;
-// Sets up the Express app to handle data parsing
+var PORT = 3000;
+
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-// Movie  Characters (DATA)
-// =============================================================
-var characters =[
-    {
+
+
+var barry = {
         routename: "barry",
         name:"Barry Allen",
         role: "Hero",
         superPower: "Super Speed"
-    },
-    {
+};
+
+var cisco = {
         routename: "cisco",
         name: "Cisco Ramon",
         role: "Tech guy",
         superPower: "Intelligence"
-    },
-    {
+};
+
+var eobard = {
         routename: "eobard",
         name: "Eobard Thawne",
         role: "Reverse Flash",
         superPower: "Super Speed"
-    },
-    {
+};
+
+var iris = {
         routename: "iris",
         name: "Iris West",
         role: "Girlfriend",
         superPower: "Support"
-    },
-]; 
+};
+//Send a json as an object
+app.get("/", function(req, res){
+    res.send(" Welcome to The Flash page")
+    
+    app.get("/barry", function(req, res){
+        res.json(barry);
 
-// Routes
-// =============================================================
-// Basic route that sends the user first to the Pages
+    })
 
-app.get("/", function(req,res) {
+    app.get("/cisco", function(req, res){
+        res.json(cisco);
+        
+    })
 
-    res.sendFile(Path.join(_dirname, "add,html"));
-});
+    app.get("/eobard", function(req, res){
+        res.json(eobard);
+        
+    })
 
-
-app.get("/add", function(req,res) {
-
-    res.sendFile(Path.join(_dirname, "add,html"));
-});
-
-
-// Displays all characters
-
-app.get("/api/characters", function(req, res) {
-    return res.json(characters);
-});
-
-
-// Displays a single character, or returns false
-app.get("/api/characters/:character", function(req,res) {
-    var chosen = req.param.character;
-    console.log(chosen);
+    app.get("/iris", function(req, res){
+        res.json(iris)
+    })
 })
 
-// Create New Characters - takes in JSON input
 
-app.post
-
-
-df
-// req.body hosts is equal to the JSON post sent from the user
-// This works because of our body parsing middleware
-  
-
-// Using a RegEx Pattern to remove spaces from newCharacter
-// You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-  
-
-// Starts the server to begin listening
-// =============================================================
-
-app.listen(PORT, function(){
+  app.listen(PORT, function(){
     console.log("Server listening on: http://localhost:" + PORT)
 });
